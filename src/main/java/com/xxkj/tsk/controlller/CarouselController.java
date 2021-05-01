@@ -1,7 +1,7 @@
 package com.xxkj.tsk.controlller;
 
-import com.xxkj.tsk.entity.Shop;
-import com.xxkj.tsk.service.ShopService;
+import com.xxkj.tsk.entity.Carousel;
+import com.xxkj.tsk.service.CarouselService;
 import com.xxkj.tsk.vo.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,16 +9,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "shop")
-public class ShopController {
+@RequestMapping(value = "carousel")
+public class CarouselController {
 
     @Autowired
-    private ShopService shopService;
+    private CarouselService carouselService;
+    @RequestMapping(value = "/find")
+    public ResultData<Carousel> find() {
 
-    @RequestMapping(value = "/look")
-    public ResultData<Shop> look(@RequestParam(value = "name") String name) {
-
-        return null;//shopService.look(name);
+        return carouselService.find();
     }
 
 
